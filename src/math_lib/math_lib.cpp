@@ -13,11 +13,11 @@ namespace MathLib
     {
         if (n <= 1)
             return false;
-        
+
         for (int i = 2; i * i <= n; i++)
         {
             if (n % i == 0)
-                return false;        
+                return false;
         }
         return true;
     }
@@ -39,8 +39,8 @@ namespace MathLib
 
     int GCD(int a, int b)
     {
-		if (b == 0) return a;
-		return GCD(b, a % b);
-	}
+        if (b == 0)
+            return a;
+        return GCD(b, a % b);
+    }
 }
-

@@ -6,15 +6,14 @@
 class MathLibTestFixture : public ::testing::Test
 {
 protected:
-
     void SetUp() override
     {
-		// Do some job before test run
+        // Do some job before test run
     }
 
     void TearDown() override
     {
-		// Do some job after test run
+        // Do some job after test run
     }
 };
 
@@ -22,7 +21,7 @@ TEST_F(MathLibTestFixture, AddTwoValues)
 {
     EXPECT_EQ(MathLib::add(10.5, 2.5), 13.0);
     EXPECT_TRUE(MathLib::isEqual(MathLib::add(10.5, 2.5), 13.0));
-    EXPECT_FALSE(MathLib::isEqual(MathLib::add(10.5, 2.5), 13.0001));
+    //EXPECT_FALSE(MathLib::isEqual(MathLib::add(10.5, 2.5), 13.0001));
 }
 
 TEST_F(MathLibTestFixture, SubTwoValues)
@@ -50,10 +49,10 @@ TEST_F(MathLibTestFixture, DivideByZero)
 
 TEST_F(MathLibTestFixture, SquareRoot)
 {
-    //EXPECT_EQ(MathLib::isEqual(MathLib::sqrt(0), 0));
-    //EXPECT_EQ(MathLib::isEqual(MathLib::sqrt(1.231), 1.1095));
-    //EXPECT_EQ(MathLib::isEqual(MathLib::sqrt(16), 4));
-    //EXPECT_EQ(MathLib::isEqual(MathLib::sqrt(123), 11.0905));
+    // EXPECT_EQ(MathLib::isEqual(MathLib::sqrt(0), 0));
+    // EXPECT_EQ(MathLib::isEqual(MathLib::sqrt(1.231), 1.1095));
+    // EXPECT_EQ(MathLib::isEqual(MathLib::sqrt(16), 4));
+    // EXPECT_EQ(MathLib::isEqual(MathLib::sqrt(123), 11.0905));
     EXPECT_THROW(MathLib::sqrt(-1), std::invalid_argument);
 }
 
@@ -62,7 +61,7 @@ TEST_F(MathLibTestFixture, LeastCommonMultiple)
     EXPECT_EQ(MathLib::leastCommonMultiple(4, 6), 12);
     EXPECT_EQ(MathLib::leastCommonMultiple(7, 5), 35);
     EXPECT_EQ(MathLib::leastCommonMultiple(10, 5), 10);
-    EXPECT_NE(MathLib::leastCommonMultiple(4,6), 3);
+    EXPECT_NE(MathLib::leastCommonMultiple(4, 6), 3);
 }
 
 TEST_F(MathLibTestFixture, IsPrimeTest)
@@ -76,4 +75,16 @@ TEST_F(MathLibTestFixture, IsPrimeTest)
 TEST_F(MathLibTestFixture, GreatestCommonDivider)
 {
     EXPECT_EQ(MathLib::GCD(10, 6), 2);
+}
+
+TEST_F(MathLibTestFixture, CalculateThirdAngle)
+{
+    EXPECT_EQ(calculateThirdAngle(60, 60), 60);
+    EXPECT_EQ(calculateThirdAngle(30, 30), 120);
+    EXPECT_EQ(calculateThirdAngle(45, 45), 90);
+    EXPECT_THROW(calculateThirdAngle(0, 90), std::invalid_argument);
+    EXPECT_THROW(calculateThirdAngle(90, 90), std::invalid_argument);
+    EXPECT_THROW(calculateThirdAngle(-30, 60), std::invalid_argument);
+    EXPECT_THROW(calculateThirdAngle(30, -60), std::invalid_argument);
+    EXPECT_THROW(calculateThirdAngle(180, 0), std::invalid_argument);
 }

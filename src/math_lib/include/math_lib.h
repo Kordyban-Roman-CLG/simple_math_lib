@@ -3,28 +3,28 @@
 #include <stdexcept>
 
 namespace MathLib
-{	
+{
     // Function for addition
     template <typename T>
     T add(T a, T b)
     {
         return a + b;
     }
-    
+
     // Function for subtraction
     template <typename T>
     T subtract(T a, T b)
     {
         return a - b;
     }
-    
+
     // Function for multiplication
     template <typename T>
     T multiply(T a, T b)
     {
         return a * b;
     }
-    
+
     // Function for division
     template <typename T>
     T divide(T a, T b)
@@ -35,9 +35,9 @@ namespace MathLib
         }
         return a / b;
     }
-    
+
     // Function for comparing two floating point values
-	bool isEqual(double a, double b, double tolerance = 0.000000001);
+    bool isEqual(double a, double b, double tolerance = 0.000000001);
 
     // Square root function
     template <typename T>
@@ -54,18 +54,31 @@ namespace MathLib
         {
             count++;
             result = 0.5 * (x + (a / x));
-            if (isEqual(result, x, 0.00001))
+            if (isEqual(result, x))
                 break;
             x = result;
         }
         return result;
     }
- 
+
+    // The function to compute the third angle of a triangle given the first two angles
+    int calculateThirdAngle(int a, int b)
+    {
+        int c = 180 - (a + b);
+
+        if (a <= 0 || b <= 0 || c <= 0)
+        {
+            throw std::invalid_argument("Invalid angles. The angles must be positive and their sum must be less than 180.");
+        }
+
+        return c;
+    }
+
     // Function to check whether value is prime
     bool isPrime(int n);
 
     // Function to search least common multiple
-	int leastCommonMultiple(int a, int b);
+    int leastCommonMultiple(int a, int b);
 
     // Function to search GCD
     int GCD(int a, int b);
