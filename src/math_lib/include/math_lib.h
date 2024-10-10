@@ -77,19 +77,6 @@ namespace MathLib
         return result;
     }
 
-    // The function to compute the third angle of a triangle given the first two angles
-    int calculateThirdAngle(int a, int b)
-    {
-        int c = 180 - (a + b);
-
-        if (a <= 0 || b <= 0 || c <= 0)
-        {
-            throw std::invalid_argument("Invalid angles. The angles must be positive and their sum must be less than 180.");
-        }
-
-        return c;
-    }
-
     // Function to check whether value is prime
     bool isPrime(int n);
 
@@ -98,5 +85,8 @@ namespace MathLib
 
     // Function to search GCD
     int GCD(int a, int b);
+
+    // The function to compute the third angle of a triangle given the first two angles
+    int calculateThirdAngle(int a, int b);
 }
 #endif
