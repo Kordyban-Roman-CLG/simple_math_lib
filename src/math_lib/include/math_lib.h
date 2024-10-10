@@ -1,5 +1,6 @@
 #pragma once
-
+#ifndef MATH_LIB_H
+#define MATH_LIB_H
 #include <stdexcept>
 
 namespace MathLib
@@ -83,3 +84,4 @@ namespace MathLib
     // Function to search GCD
     int GCD(int a, int b);
 }
+#endif
