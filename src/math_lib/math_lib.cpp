@@ -1,6 +1,4 @@
 #include "math_lib.h"
-#include <cmath>
-#include <algorithm>
 
 namespace MathLib
 {
@@ -25,7 +23,7 @@ namespace MathLib
     int leastCommonMultiple(int a, int b)
     {
         int lcm = 1;
-        int maxNum = std::max(a, b);
+        int maxNum = max(a, b);
         for (int i = maxNum; i <= a * b; i += maxNum)
         {
             if (i % a == 0 && i % b == 0)
